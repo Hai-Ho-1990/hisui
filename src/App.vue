@@ -1,47 +1,32 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+    import LoginButton from './components/LoginButton.vue';
+    import Logo from './components/Logo.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <BContainer fluid>
+        <header>
+            <RouterLink to="/" class="logo"><Logo /></RouterLink>
+            <RouterLink to="/login" class="login"><LoginButton /></RouterLink>
+        </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+        <main>
+            <RouterView></RouterView>
+        </main>
+    </BContainer>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+    header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+    .login {
+        margin-right: 100px;
+    }
+    .logo {
+        margin-left: 25px;
+    }
 </style>
