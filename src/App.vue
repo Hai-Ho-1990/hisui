@@ -4,16 +4,14 @@
 </script>
 
 <template>
-    <BContainer fluid>
-        <header>
-            <RouterLink to="/" class="logo"><Logo /></RouterLink>
-            <RouterLink to="/login" class="login"><LoginButton /></RouterLink>
-        </header>
+    <header>
+        <RouterLink to="/" class="logo"><Logo /></RouterLink>
+        <RouterLink to="/login" class="login"><LoginButton /></RouterLink>
+    </header>
 
-        <main>
-            <RouterView></RouterView>
-        </main>
-    </BContainer>
+    <main>
+        <RouterView></RouterView>
+    </main>
 </template>
 
 <style scoped>

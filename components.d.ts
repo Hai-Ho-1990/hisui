@@ -7,8 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BAlert: typeof import('bootstrap-vue-next/components/BAlert')['BAlert']
     BButton: typeof import('bootstrap-vue-next/components/BButton')['BButton']
     BContainer: typeof import('bootstrap-vue-next/components/BContainer')['BContainer']
+    BForm: typeof import('bootstrap-vue-next/components/BForm')['BForm']
+    BFormFloatingLabel: typeof import('bootstrap-vue-next/components/BForm')['BFormFloatingLabel']
+    BFormInput: typeof import('bootstrap-vue-next/components/BFormInput')['BFormInput']
+    BFormInvalidFeedback: typeof import('bootstrap-vue-next/components/BForm')['BFormInvalidFeedback']
+    BFormValidFeedback: typeof import('bootstrap-vue-next/components/BForm')['BFormValidFeedback']
     HeaderSection: typeof import('./src/components/HeaderSection.vue')['default']
     HeroSection: typeof import('./src/components/HeroSection.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
@@ -20,5 +26,6 @@ declare module 'vue' {
     Logo: typeof import('./src/components/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VideoBeach: typeof import('./src/components/VideoBeach.vue')['default']
   }
 }
