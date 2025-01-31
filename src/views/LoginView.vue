@@ -43,6 +43,10 @@
         <VideoBeach />
         <div class="welcome" v-if="isLogin">
             <h1>Welcome back, {{ username }}</h1>
+            <div class="button-container">
+                <BButton class="button" pill>Back to Home</BButton>
+                <BButton class="button" pill>Go to Profile</BButton>
+            </div>
         </div>
     </div>
 </template>
@@ -83,9 +87,9 @@
         border-radius: 25px;
     }
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         font-family: 'Poppins', serif;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         font-weight: 700;
         color: white;
     }
@@ -95,9 +99,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+    }
+    .welcome > h1 {
+        font-size: 4rem;
     }
     .login-button {
         padding: 7px 50px;
         margin-top: 30px;
+    }
+    .button {
+        font-family: 'Poppins', serif;
+        padding: 12px 32px;
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: black;
+        font-weight: 400;
+        z-index: 1;
     }
 </style>
