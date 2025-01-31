@@ -1,12 +1,14 @@
 <template>
     <div>
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="../assets/heroes.mp4" type="video/mp4" />
+            <source v-bind:src="beachVideo" type="video/mp4" />
         </video>
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    import beachVideo from '../assets/heroes.mp4';
+</script>
 
 <style scoped>
     .hero-video {
