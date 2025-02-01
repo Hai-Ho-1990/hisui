@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import LoginView from './views/LoginView.vue';
 import HomeView from './views/HomeView.vue';
-import UserName from './views/UserName.vue';
-
+import UserPage from './views/UserPage.vue';
+import ChangePassword from './views/ChangePassword.vue';
 export default createRouter({
     history: createWebHistory(),
     routes: [
@@ -16,8 +16,12 @@ export default createRouter({
             path: '/'
         },
         {
-            component: UserName,
+            component: UserPage,
             path: '/:userName'
+        },
+        {
+            component: ChangePassword,
+            path: '/:userName/changepassword'
         }
     ]
 });

@@ -1,6 +1,6 @@
 <template>
     <div class="background-container">
-        <div v-if="!isLogin" class="login-form">
+        <div class="login-form">
             <h1>login</h1>
             <BForm>
                 <BFormFloatingLabel
@@ -41,28 +41,26 @@
             >
         </div>
         <VideoBeach />
-        <div class="welcome" v-if="isLogin">
-            <h1>Welcome back, {{ username }}</h1>
-            <div class="button-container">
-                <BButton class="button" pill>Back to Home</BButton>
-                <BButton class="button" pill>Go to Profile</BButton>
-            </div>
-        </div>
     </div>
 </template>
 
 <script setup lang="ts">
     import VideoBeach from '@/components/VideoBeach.vue';
     import { ref, computed } from 'vue';
+    import { useRouter } from 'vue-router';
+    import { UserStore } from '@/store/user';
 
-    const isLogin = ref(false);
+    const router = useRouter();
+    const userStore = UserStore();
+
     const password = ref('');
     const username = ref('');
     const validation = computed(() => username.value.length > 0);
     const validationPassword = computed(() => password.value.length > 0);
     const login = () => {
         if (username.value.length > 0 && password.value.length > 0) {
-            isLogin.value = true;
+            userStore.storeUsername(username.value);
+            router.push(`/${username.value} `);
         }
     };
 </script>
@@ -93,28 +91,9 @@
         font-weight: 700;
         color: white;
     }
-    .welcome {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .welcome > h1 {
-        font-size: 4rem;
-    }
+
     .login-button {
         padding: 7px 50px;
         margin-top: 30px;
-    }
-    .button {
-        font-family: 'Poppins', serif;
-        padding: 12px 32px;
-        background: rgba(255, 255, 255, 0.3);
-        border: none;
-        color: black;
-        font-weight: 400;
-        z-index: 1;
     }
 </style>
