@@ -2,7 +2,9 @@
     <div class="welcome">
         <h1>Welcome back, {{ userStore.username }}</h1>
         <div class="button-container">
-            <BButton class="button" pill>Change Username</BButton>
+            <BButton @click="changeUsername" class="button" pill
+                >Change Username</BButton
+            >
             <BButton @click="changePassword" class="button" pill
                 >Change Password</BButton
             >
@@ -18,6 +20,9 @@
     const userStore = UserStore();
     const changePassword = () => {
         router.push(`/${userStore.username}/changepassword`);
+    };
+    const changeUsername = () => {
+        router.push(`/${userStore.username}/changeusername`);
     };
 </script>
 

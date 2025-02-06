@@ -22,9 +22,9 @@
     }
 
     .login {
-        margin-right: 100px;
+        margin-right: 10%;
     }
     .logo {
-        margin-left: 25px;
+        margin-left: 8%;
     }
 </style>

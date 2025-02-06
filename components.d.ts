@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ActivitiesHeroVideo: typeof import('./src/components/ActivitiesHeroVideo.vue')['default']
+    ActivitiesList: typeof import('./src/components/ActivitiesList.vue')['default']
     BAlert: typeof import('bootstrap-vue-next/components/BAlert')['BAlert']
     BButton: typeof import('bootstrap-vue-next/components/BButton')['BButton']
     BContainer: typeof import('bootstrap-vue-next/components/BContainer')['BContainer']

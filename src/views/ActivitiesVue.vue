@@ -1,31 +1,26 @@
 <template>
-    <div class="hero">
-        <VideoBeach />
-        <div class="overplay">
-            <h1>DISCOVER HISUI ISLAND</h1>
-            <RouterLink to="/activities"
-                ><BButton class="activity" pill
-                    >Book Activities</BButton
-                ></RouterLink
-            >
+    <main id="container">
+        <div class="hero">
+            <ActivitiesHeroVideo />
+            <div class="overplay">
+                <h1>DISCOVER ACTIVITIES</h1>
+            </div>
         </div>
-    </div>
+
+        <ActivitiesList :url="apiUrl" />
+        <!-- i förälder komponent skickar api länk till barn komponent
+         vilken i sin tur tas emot och hämtar alla nödvändig information-->
+    </main>
 </template>
 
 <script setup lang="ts">
-    import VideoBeach from './VideoBeach.vue';
+    import ActivitiesHeroVideo from '@/components/ActivitiesHeroVideo.vue';
+    import ActivitiesList from '@/components/ActivitiesList.vue';
+    // Definiera länken api här
+    const apiUrl = 'http://localhost:3000/activities';
 </script>
 
 <style scoped>
-    .activity {
-        font-family: 'Poppins', serif;
-        padding: 12px 32px;
-        background: rgba(255, 255, 255, 0.3);
-        border: none;
-        color: black;
-        font-weight: 400;
-        z-index: 1;
-    }
     .overplay {
         display: flex;
         flex-direction: column;
@@ -47,7 +42,7 @@
 
     .hero {
         width: 100%;
-        height: 100vh;
+        height: 98.3vh;
         overflow: hidden;
         display: flex;
         justify-content: center;

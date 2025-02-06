@@ -1,43 +1,43 @@
 <template>
     <div class="background-container">
-        <div v-if="!showMessage" class="change-password-form">
-            <h1>Change Password</h1>
+        <div v-if="!showMessage" class="change-username-form">
+            <h1>Change Username</h1>
             <BForm>
                 <BFormFloatingLabel
-                    label="Old Password"
-                    label-for="floatingOldPassword"
+                    label="Old Username"
+                    label-for="floatingOldUsername"
                     class="my-2"
                 >
                     <BFormInput
-                        v-model="oldPassword"
-                        id="floatingOldPassword"
-                        type="password"
-                        placeholder="Old password"
-                        :state="validationOldPassword"
+                        v-model="oldUsername"
+                        id="floatingOldUsername"
+                        type="text"
+                        placeholder="Old username"
+                        :state="validationOldUsername"
                     />
-                    <BFormInvalidFeedback :state="validationOldPassword">
-                        Your old password is required.
+                    <BFormInvalidFeedback :state="validationOldUsername">
+                        Your old username is required.
                     </BFormInvalidFeedback>
                 </BFormFloatingLabel>
                 <BFormFloatingLabel
-                    label="New Password"
-                    label-for="floatingNewPassword"
+                    label="New Username"
+                    label-for="floatingNewUsername"
                     class="my-2"
                 >
                     <BFormInput
-                        v-model="newPassword"
-                        id="floatingNewPassword"
-                        type="password"
-                        placeholder="Password"
-                        :state="validationNewPassword"
+                        v-model="newUsername"
+                        id="floatingNewUsername"
+                        type="text"
+                        placeholder="Username"
+                        :state="validationNewUsername"
                     />
-                    <BFormInvalidFeedback :state="validationNewPassword">
-                        Password is required.
+                    <BFormInvalidFeedback :state="validationNewUsername">
+                        Username is required.
                     </BFormInvalidFeedback>
                 </BFormFloatingLabel>
 
-                <p v-if="submitted && checkPassword">
-                    You have the same old & new password. Try again.
+                <p v-if="submitted && checkUsername">
+                    You have the same old & new username. Try again.
                 </p>
             </BForm>
 
@@ -45,12 +45,12 @@
                 class="change-button"
                 pill
                 variant="primary"
-                @click="changePassword"
+                @click="changeUsername"
                 >Change</BButton
             >
         </div>
         <div v-if="showMessage" class="message">
-            <h1>Your password has been changed.</h1>
+            <h1>{{ message }}</h1>
             <BButton @click="home" class="button" pill>Return Home</BButton>
         </div>
         <VideoBeach />
@@ -58,28 +58,42 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, computed } from 'vue';
+    import { UserStore } from '@/store/user';
+    import { ref, computed, watch } from 'vue';
     import { useRouter } from 'vue-router';
 
-    const oldPassword = ref('');
-    const newPassword = ref('');
-    const validationNewPassword = computed(() => newPassword.value.length > 0);
-    const validationOldPassword = computed(() => oldPassword.value.length > 0);
-    const checkPassword = computed(
-        () => newPassword.value === oldPassword.value
+    const oldUsername = ref('');
+    const newUsername = ref('');
+    const validationNewUsername = computed(() => newUsername.value.length > 0);
+    const validationOldUsername = computed(() => oldUsername.value.length > 0);
+    const checkUsername = computed(
+        () => newUsername.value === oldUsername.value
     );
     const showMessage = ref(false);
     const submitted = ref(false);
 
-    const changePassword = () => {
+    const message = ref('');
+    const userStore = UserStore();
+    const userName = ref(userStore.username);
+    const changeUsername = () => {
+        userStore.username = newUsername.value;
         submitted.value = true;
 
-        if (checkPassword.value) {
+        if (checkUsername.value) {
             showMessage.value = false;
-        } else if (!checkPassword.value) {
+        } else if (!checkUsername.value) {
             showMessage.value = true;
         }
     };
+
+    watch(
+        () => userStore.username,
+        (newUsername, oldUsername) => {
+            if (newUsername !== oldUsername) {
+                message.value = `Your username has been changed from ${oldUsername} to ${newUsername}`;
+            }
+        }
+    );
 
     const router = useRouter();
     const home = () => {
@@ -91,7 +105,7 @@
     .background-container {
         height: 100vh;
     }
-    .change-password-form {
+    .change-username-form {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -100,8 +114,8 @@
         justify-content: center;
         align-items: center;
     }
-    #floatingOldPassword,
-    #floatingNewPassword {
+    #floatingOldUsername,
+    #floatingNewUsername {
         padding-left: 25px;
         width: 400px;
         border-radius: 25px;
