@@ -1,0 +1,17 @@
+{
+    "activities": [
+        {
+            "id": "1",
+            "name": "surfing",
+            "description": "",
+            "picture": "surfing.jpg"
+        },
+        {
+            "id": "2",
+            "name": "hiking",
+            "description": "",
+            "picture": "hiking.jpg"
+        },
+        { "id": "3", "name": "discovering culture", "description": "" }
+    ]
+}
