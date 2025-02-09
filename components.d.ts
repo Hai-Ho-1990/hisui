@@ -17,6 +17,7 @@ declare module 'vue' {
     BFormInput: typeof import('bootstrap-vue-next/components/BFormInput')['BFormInput']
     BFormInvalidFeedback: typeof import('bootstrap-vue-next/components/BForm')['BFormInvalidFeedback']
     BFormValidFeedback: typeof import('bootstrap-vue-next/components/BForm')['BFormValidFeedback']
+    FooterVue: typeof import('./src/components/FooterVue.vue')['default']
     HeaderSection: typeof import('./src/components/HeaderSection.vue')['default']
     HeroSection: typeof import('./src/components/HeroSection.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']

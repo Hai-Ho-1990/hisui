@@ -11,6 +11,11 @@
 </script>
 
 <style scoped>
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .hero-video {
         width: 100%;
         height: 100%;

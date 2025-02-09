@@ -2,16 +2,22 @@
     "activities": [
         {
             "id": "1",
-            "name": "surfing",
-            "description": "",
-            "picture": "surfing.jpg"
+            "name": "SURFING AT EAST BAY",
+
+            "description": "Surfing on Asia’s islands offers warm waters, epic waves, and stunning views. From Bali to Siargao, each spot has unique charm, perfect for all skill levels. A true paradise for surfers!",
+            "picture": "surfing3.jpg"
         },
         {
             "id": "2",
-            "name": "hiking",
-            "description": "",
-            "picture": "hiking.jpg"
+            "name": "HIKING AT REDWOODS",
+            "description": "Hiking on Asia’s islands offers breathtaking trails, lush jungles, and stunning mountain views. From Bali to Taiwan, each route has its own charm, perfect for adventurers of all levels. A true paradise for hikers!",
+            "picture": "hiking1.jpg"
         },
-        { "id": "3", "name": "discovering culture", "description": "" }
+        {
+            "id": "3",
+            "name": "DISCOVERING CULTURE",
+            "description": "Exploring Asia’s islands offers a deep dive into rich traditions, local cuisine, and vibrant communities. From ancient temples to lively festivals, each destination provides a unique cultural experience that connects past and present.",
+            "picture": "culture2.jpg"
+        }
     ]
 }

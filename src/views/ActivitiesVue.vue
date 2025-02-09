@@ -3,7 +3,7 @@
         <div class="hero">
             <ActivitiesHeroVideo />
             <div class="overplay">
-                <h1>DISCOVER ACTIVITIES</h1>
+                <h1>ACTIVITIES</h1>
             </div>
         </div>
 
@@ -32,12 +32,13 @@
     }
     h1 {
         color: yellow;
-        font-size: 105px;
+        font-size: 17vw;
         margin-bottom: 15px;
         font-family: 'Poppins', serif;
         font-weight: 700;
         z-index: 1;
         word-spacing: 1rem;
+        margin-bottom: 120px;
     }
 
     .hero {
