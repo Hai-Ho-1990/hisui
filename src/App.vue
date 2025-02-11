@@ -1,17 +1,32 @@
 <script setup lang="ts">
+    import CartButton from './components/CartButton.vue';
     import LoginButton from './components/LoginButton.vue';
     import Logo from './components/Logo.vue';
+
+    import { ref } from 'vue';
+
+    const cartCount = ref(0);
+    const increaseCart = () => {
+        cartCount.value++;
+    };
 </script>
 
 <template>
     <b-container fluid>
         <header>
             <RouterLink to="/" class="logo"><Logo /></RouterLink>
-            <RouterLink to="/login" class="login"><LoginButton /></RouterLink>
+            <div class="login-cart-container">
+                <RouterLink to="/login" class="login"
+                    ><LoginButton
+                /></RouterLink>
+                <RouterLink to="/cart" class="cart"
+                    ><CartButton :cartCount="cartCount"
+                /></RouterLink>
+            </div>
         </header>
 
         <main>
-            <RouterView></RouterView>
+            <RouterView @customEvent="increaseCart"></RouterView>
         </main>
     </b-container>
 </template>
@@ -24,13 +39,16 @@
     header {
         display: flex;
         width: 100%;
-        justify-content: space-between;
-    }
-
-    .login {
-        margin-right: 10%;
     }
     .logo {
-        margin-left: 8%;
+        flex: 14;
+    }
+
+    .cart {
+        margin-left: 60px;
+    }
+    .login-cart-container {
+        display: flex;
+        flex: 2;
     }
 </style>

@@ -5,7 +5,8 @@ import HomeView from './views/HomeView.vue';
 import UserPage from './views/UserPage.vue';
 import ChangePassword from './views/ChangePassword.vue';
 import ChangeUsername from './views/ChangeUsername.vue';
-import ActivitiesVue from './views/ActivitiesVue.vue';
+import ActivitiesVue from './views/ActivitiesView.vue';
+import CartView from './components/CartButton.vue';
 
 export default createRouter({
     history: createWebHistory(),
@@ -33,6 +34,10 @@ export default createRouter({
         {
             component: ActivitiesVue,
             path: '/activities'
+        },
+        {
+            component: CartView,
+            path: '/cart'
         }
     ]
 });

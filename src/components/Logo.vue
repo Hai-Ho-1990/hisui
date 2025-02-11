@@ -13,6 +13,7 @@
         border: none;
         position: absolute;
         top: 20px;
+        left: 100px;
         font-size: 35px;
         font-weight: 800;
         font-family: 'Poppins', serif;

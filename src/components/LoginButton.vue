@@ -1,8 +1,6 @@
 <template>
     <div id="button-container">
         <input id="login" type="button" value="login" />
-        <p>|</p>
-        <input id="cart" type="button" value="cart" />
     </div>
 </template>
 
@@ -15,20 +13,17 @@
         justify-content: space-around;
         position: absolute;
         top: 30px;
+        background-color: yellow;
     }
-    #button-container > p {
-        margin-bottom: 0;
-    }
-    #login,
-    #cart,
-    p {
+
+    #login {
         background: none;
-        color: yellow;
+        color: black;
         font-family: 'Poppins', serif;
         font-weight: 500;
         font-size: 20px;
         border: none;
 
-        z-index: 11;
+        z-index: 1;
     }
 </style>

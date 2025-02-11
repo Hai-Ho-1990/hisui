@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <ActivitiesList :url="apiUrl" />
+        <ActivitiesList @customEvent="handleActivityAdded" :url="apiUrl" />
         <!-- i förälder komponent skickar api länk till barn komponent
          vilken i sin tur tas emot och hämtar alla nödvändig information-->
     </main>
@@ -16,8 +16,14 @@
 <script setup lang="ts">
     import ActivitiesHeroVideo from '@/components/ActivitiesHeroVideo.vue';
     import ActivitiesList from '@/components/ActivitiesList.vue';
+    import { defineEmits } from 'vue';
     // Definiera länken api här
     const apiUrl = 'http://localhost:3000/activities';
+    // Funktion för att hantera activity added
+    const emit = defineEmits(['customEvent']);
+    const handleActivityAdded = () => {
+        emit('customEvent');
+    };
 </script>
 
 <style scoped>

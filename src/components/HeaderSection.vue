@@ -1,8 +1,10 @@
 <template>
-    <div class="container">
+    <header>
         <div class="logo"><Logo /></div>
+
         <div class="button"><LoginButton /></div>
-    </div>
+        <div class="cart"><CartButton /></div>
+    </header>
 </template>
 
 <script setup lang="ts"></script>

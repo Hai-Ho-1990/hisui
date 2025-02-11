@@ -23,6 +23,9 @@
                     <div class="description">
                         <h2>{{ activity.name }}</h2>
                         <p>{{ activity.description }}</p>
+                        <BButton @click="addToCart" class="booking" pill
+                            >Book Now</BButton
+                        >
                     </div>
 
                     <img
@@ -38,7 +41,14 @@
 
 <script setup lang="ts">
     import axios from 'axios';
+    import { defineEmits } from 'vue';
     import { ref } from 'vue';
+
+    const emit = defineEmits(['customEvent']);
+
+    const addToCart = () => {
+        emit('customEvent');
+    };
 
     const activities = ref<Activity[]>([]);
 
@@ -61,7 +71,7 @@
 <style scoped>
     .activities-container {
         height: 350vh;
-        width: 99vw;
+        width: 100vw;
 
         display: flex;
         flex-direction: column;
@@ -137,5 +147,15 @@
         width: 90%;
         height: 100vh;
         z-index: -10;
+    }
+    .booking {
+        font-family: 'Poppins', serif;
+        padding: 12px 32px;
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: black;
+        font-weight: 400;
+        z-index: 1;
+        margin-top: 20px;
     }
 </style>
